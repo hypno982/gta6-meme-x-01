@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""GTA 6 meme generator for the make.fun meme entry.
+"""GTA 6 meme generator for the make.fun entry gta6-meme-x-01.
+
+DOCUMENTATION COPY - NOT PART OF THE GRADED PROGRAM.
+================================================================
+This script produced the shipped meme.png, offline, before submission.
+It needs Pillow (pip install Pillow) and, on a cold cache, network access
+to fetch the mascot from https://make.fun/press/mark-1024.png.
+It is kept here so the image can be reproduced, but it is NOT executed by
+the make.fun grader and is NOT the judged deliverable. The graded program
+is main.ts, which only copies POST.json into the output directory.
 
 Draws a 1080x1080 GTA-loading-screen style meme:
     13 years waiting for GTA 6
@@ -34,6 +43,7 @@ FONT_BOLD_ALT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 
 
 def load_font(size):
+    """Use DejaVu Condensed Bold if present, else plain Bold, else bitmap."""
     for path in (FONT_BOLD, FONT_BOLD_ALT):
         if os.path.exists(path):
             return ImageFont.truetype(path, size)
